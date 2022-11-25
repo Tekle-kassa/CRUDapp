@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>management</title>
+</head>
+<body>
+    <a href="/users/new">new</a>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Gender</th>
+            <th>Status</th>
+            <th>Action</th>
+        </tr>
+        <% for(let user of users){ %> 
+         <tr>
+            <td><%=users.indexOf(user)+1 %> </td>
+            <td><%=user.name%> </td>
+            <td><%=user.email %> </td>
+            <td><%=user.gender %> </td>
+            <td><%=user.status %> </td>
+            <td>
+                <a href="/users/<%=user._id%>/edit ">edit</a>
+                <form action="/users/<%=user._id%>?_method=delete"method="post">
+                <button>delete</button>
+                </form>
+            </td>
+         </tr>
+       
+         <% } %> 
+    </table>
+
+</body>
+</html>
